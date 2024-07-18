@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="empinterviewModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Gender" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TblDept">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dept" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TblDsg">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dsg" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TblEmp">
+          <Key>
+            <PropertyRef Name="Sr.No." />
+          </Key>
+          <Property Name="Sr.No." Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Dsg" Type="int" />
+          <Property Name="Dept" Type="int" />
+          <Property Name="Gender" Type="int" />
+          <Property Name="Salary" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityContainer Name="empinterviewModelStoreContainer">
+          <EntitySet Name="Gender" EntityType="Self.Gender" Schema="employee" store:Type="Tables" />
+          <EntitySet Name="TblDept" EntityType="Self.TblDept" Schema="employee" store:Type="Tables" />
+          <EntitySet Name="TblDsg" EntityType="Self.TblDsg" Schema="employee" store:Type="Tables" />
+          <EntitySet Name="TblEmp" EntityType="Self.TblEmp" Schema="employee" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="empinterviewModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Gender1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TblDept">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dept" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TblDsg">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dsg" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TblEmp">
+          <Key>
+            <PropertyRef Name="Sr_No_" />
+          </Key>
+          <Property Name="Sr_No_" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dsg" Type="Int32" />
+          <Property Name="Dept" Type="Int32" />
+          <Property Name="Gender" Type="Int32" />
+          <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityContainer Name="empinterviewEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Genders" EntityType="Self.Gender" />
+          <EntitySet Name="TblDepts" EntityType="Self.TblDept" />
+          <EntitySet Name="TblDsgs" EntityType="Self.TblDsg" />
+          <EntitySet Name="TblEmps" EntityType="Self.TblEmp" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="empinterviewModelStoreContainer" CdmEntityContainer="empinterviewEntities1">
+          <EntitySetMapping Name="Genders">
+            <EntityTypeMapping TypeName="empinterviewModel.Gender">
+              <MappingFragment StoreEntitySet="Gender">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Gender1" ColumnName="Gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblDepts">
+            <EntityTypeMapping TypeName="empinterviewModel.TblDept">
+              <MappingFragment StoreEntitySet="TblDept">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Dept" ColumnName="Dept" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblDsgs">
+            <EntityTypeMapping TypeName="empinterviewModel.TblDsg">
+              <MappingFragment StoreEntitySet="TblDsg">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Dsg" ColumnName="Dsg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblEmps">
+            <EntityTypeMapping TypeName="empinterviewModel.TblEmp">
+              <MappingFragment StoreEntitySet="TblEmp">
+                <ScalarProperty Name="Sr_No_" ColumnName="Sr.No." />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Dsg" ColumnName="Dsg" />
+                <ScalarProperty Name="Dept" ColumnName="Dept" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
