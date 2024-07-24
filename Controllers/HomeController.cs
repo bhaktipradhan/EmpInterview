@@ -1,4 +1,4 @@
-﻿using EmpInterview.Models;
+using EmpInterview.Models;
 using EmpInterview.select;
 using System;
 using System.Collections.Generic;
@@ -55,10 +55,11 @@ namespace EmpInterview.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            ViewBag.Dsg = new SelectList(empEntity.TblDsgs, "Id", "Dsg");
-            ViewBag.Dept = new SelectList(empEntity.TblDepts, "Id", "Dept");
-            ViewBag.Gender = new SelectList(empEntity.Genders, "Id", "Gender1");
             var employee = empEntity.TblEmps.Where(x => x.Sr_No_ == id).FirstOrDefault();
+            ViewBag.Dsg = new SelectList(empEntity.TblDsgs, "Id", "Dsg", employee.Dsg);
+            ViewBag.Dept = new SelectList(empEntity.TblDepts, "Id", "Dept", employee.Dept);
+            ViewBag.Gender = new SelectList(empEntity.Genders, "Id", "Gender1", employee.Gender);
+            
             return View(employee);
         }
 
